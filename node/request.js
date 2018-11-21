@@ -39,7 +39,8 @@ function hoenn(callback){
 var storeHoenn = [];
 var storeFire = [];
 
-hoenn(function(hoennDex){
+function fireHoenn(){
+	hoenn(function(hoennDex){
 	fireType(function(fireTypes){
 		var totalArray = [];
 		storeFire = fireTypes;
@@ -52,13 +53,11 @@ hoenn(function(hoennDex){
 				}
 			}
 		}
-		console.log(totalArray);
+		//console.log(totalArray);
+		return totalArray;
 	})
 });
-
-
-
-
+}
 
 
 // get array of all hoenn pokemon
