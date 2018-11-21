@@ -9,6 +9,7 @@
   "author": "narim",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^2.6.1",
     "request": "^2.88.0",
     "rest": "^2.0.0"
   }
