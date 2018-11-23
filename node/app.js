@@ -1,5 +1,6 @@
 var express = require('express');
 var dex = require('pokedex-promise-v2');
+var bodyParser = require('body-parser');
 
 var p = new dex();
 
@@ -25,6 +26,7 @@ app.get('/', function(req, res){
 });
 
 app.post('/', urlencodedParser, function(req, res){
+	console.log(req.body);
 	res.sendFile(__dirname + '/index.htm');
 });
 
