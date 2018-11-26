@@ -3,8 +3,17 @@ var dx = require('pokedex-promise-v2');
 
 var p = new dx();
 
+function fire(){
+	p.getTypeByName('fire').then(function(res){
+		console.log(res.pokemon);
+	})
+}
+
+fire();
+
+
 var reg = 'kanto';
-var type = 'dragon';
+var type = 'water';
 
 var getRegion = {
 	method: 'GET',
@@ -65,4 +74,6 @@ function typeReg(){
 });
 }
 
-typeReg();
+module.exports = {
+	typeReg: typeReg
+}
