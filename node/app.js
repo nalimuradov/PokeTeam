@@ -1,6 +1,5 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var req = require('./request');
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
@@ -14,7 +13,7 @@ app.get('/', function(req, res){
 });
 
 app.post('/', urlencodedParser, function(req, res){
-	console.log(req.typeReg);
+	console.log(req.body);
 	res.sendFile(__dirname + '/index.htm');
 });
 
