@@ -1,64 +1,68 @@
 var request = require('request');
+var dx = require('pokedex-promise-v2');
 
-var getHoennDex = {
+var p = new dx();
+
+var reg = 'kanto';
+var type = 'dragon';
+
+var getRegion = {
 	method: 'GET',
-	url: 'https://pokeapi.co/api/v2/pokedex/hoenn/'
+	url: 'https://pokeapi.co/api/v2/pokedex/' + reg + '/'
 };
 
-var getFireTypes = {
+var getType = {
 	method: 'GET',
-	url: 'https://pokeapi.co/api/v2/type/fire/'
+	url: 'https://pokeapi.co/api/v2/type/' + type + '/'
 };
 
-function fireType(callback){
-	request(getFireTypes, function(err, resp, body){
-		var fireTypes = [];
+function callType(callback){
+	request(getType, function(err, resp, body){
+		var typeArr = [];
 		if (!err){
-			var fire = JSON.parse(body);
-			for (i = 0; i < fire.pokemon.length; i++){
-				fireTypes[i] = fire.pokemon[i].pokemon.name;
+			var body = JSON.parse(body);
+			for (i = 0; i < body.pokemon.length; i++){
+				typeArr[i] = body.pokemon[i].pokemon.name;
 			}
-			callback(fireTypes);
+			callback(typeArr);
 		}
 	})	
 }
 
-function hoenn(callback){
-	request(getHoennDex, function(err, resp, body){
-		var hoennDex = [];
+function callRegion(callback){
+	request(getRegion, function(err, resp, body){
+		var regionArr = [];
 		if (!err){
-			var hoenn = JSON.parse(body);
-			for (i = 0; i < hoenn.pokemon_entries.length; i++){
-				hoennDex[i] = hoenn.pokemon_entries[i].pokemon_species.name;
+			var body = JSON.parse(body);
+			for (i = 0; i < body.pokemon_entries.length; i++){
+				regionArr[i] = body.pokemon_entries[i].pokemon_species.name;
 			}
-			callback(hoennDex);
+			callback(regionArr);
 		}
 	});
 }
 
-var storeHoenn = [];
-var storeFire = [];
+function typeReg(){
+	callRegion(function(regionArr){
+	callType(function(typeArr){
 
-function fireHoenn(){
-	hoenn(function(hoennDex){
-	fireType(function(fireTypes){
 		var totalArray = [];
-		storeFire = fireTypes;
-		storeHoenn = hoennDex;
 
-		for (i = 0; i < storeFire.length; i++){
-			for (j = 0; j < storeHoenn.length; j++){
-				if (storeFire[i] == storeHoenn[j]){
-					totalArray.push(storeFire[i]);
+		var type1 = [];
+		var reg1 = [];
+		type1 = typeArr;
+		reg1 = regionArr;
+
+		for (i = 0; i < typeArr.length; i++){
+			for (j = 0; j < regionArr.length; j++){
+				if (typeArr[i] == regionArr[j]){
+					totalArray.push(typeArr[i]);
 				}
 			}
 		}
-		//console.log(totalArray);
-		return totalArray;
+		console.log(totalArray);
 	})
 });
 }
 
-
-// get array of all hoenn pokemon
-// get array of all fire pokemon
+typeReg();
