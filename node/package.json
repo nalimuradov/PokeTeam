@@ -9,10 +9,13 @@
   "author": "narim",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.6.1",
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
+    "multiple-requests-promise": "^1.0.0",
     "pokedex-promise-v2": "^3.1.1",
     "request": "^2.88.0",
+    "request-promise": "^4.2.2",
     "rest": "^2.0.0"
   }
 }

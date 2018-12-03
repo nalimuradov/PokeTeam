@@ -1,8 +1,8 @@
 var request = require('request');
+var async = require('async');
 
-var reg = 'johto'
-var type = 'psychic';
-
+var reg = 'hoenn'
+var type = 'bug';
 
 getRegion = {
 	method: 'GET',
