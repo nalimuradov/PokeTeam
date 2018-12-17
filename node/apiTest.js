@@ -1,18 +1,10 @@
 var request = require('request');
 var async = require('async');
-var rp = require('request-promise');
-var multireq = require('multiple-requests-promise');
+var rp = require('request-promise'); 
 
-var reg = 'kanto'
+var reg = 'kanto';
 var type = 'bug';
 
-var urls = ['https://pokeapi.co/api/v2/pokedex/' + reg + '/',
-			'https://pokeapi.co/api/v2/type/' + type + '/'];
-
-
-console.log(multireq(urls, 'GET', false).err);
-
-/*
 getRegion = {
 	method: 'GET',
 	url: 'https://pokeapi.co/api/v2/pokedex/' + reg + '/'
@@ -36,4 +28,3 @@ rp(getRegion).then(function(data){
 });
 
 console.log(regionArr);
-*/
