@@ -1,20 +1,13 @@
 var request = require('request');
 var async = require('async');
 
-var reg = 'hoenn'
-var type = 'bug';
+function callType(t, callback){
 
-getRegion = {
-	method: 'GET',
-	url: 'https://pokeapi.co/api/v2/pokedex/' + reg + '/'
-};
+	getType = {
+		method: 'GET',
+		url: 'https://pokeapi.co/api/v2/type/' + t + '/'
+	};
 
-getType = {
-	method: 'GET',
-	url: 'https://pokeapi.co/api/v2/type/' + type + '/'
-};
-
-function callType(callback){
 	request(getType, function(err, resp, body){
 		var typeArr = [];
 		if (!err){
@@ -27,7 +20,13 @@ function callType(callback){
 	})	
 }
 
-function callRegion(callback){
+function callRegion(r, callback){
+
+	getRegion = {
+		method: 'GET',
+		url: 'https://pokeapi.co/api/v2/pokedex/' + r + '/'
+	};
+
 	request(getRegion, function(err, resp, body){
 		var regionArr = [];
 		if (!err){
@@ -40,27 +39,45 @@ function callRegion(callback){
 	})
 }
 
-function typeReg(){
-	callRegion(function(regionArr){
-	callType(function(typeArr){
+var finalArray = [];
 
-		var totalArray = [];
+function typeReg(t, r, callback){
+	callRegion(r, function(regionArr){
+		callType(t, function(typeArr){
 
-		var type1 = [];
-		var reg1 = [];
-		type1 = typeArr;
-		reg1 = regionArr;
+			var totalArray = [];
 
-		for (i = 0; i < typeArr.length; i++){
-			for (j = 0; j < regionArr.length; j++){
-				if (typeArr[i] == regionArr[j]){
-					totalArray.push(typeArr[i]);
+			var type1 = [];
+			var reg1 = [];
+			type1 = typeArr;
+			reg1 = regionArr;
+
+			for (i = 0; i < typeArr.length; i++){
+				for (j = 0; j < regionArr.length; j++){
+					if (typeArr[i] == regionArr[j]){
+						totalArray.push(typeArr[i]);
+					}
 				}
 			}
-		}
-		console.log(totalArray);
-	})
-});
+			finalArray = totalArray;
+			callback();
+		})
+	});
 }
 
-typeReg();
+// output to screen here
+function output(){
+	console.log(finalArray);
+}
+
+var t, r;
+module.exports = {
+	params: function(arg1, arg2){
+		t = arg1;
+		r = arg2;
+	},
+
+	out: function(){
+		typeReg(t, r, output);
+	}
+};
