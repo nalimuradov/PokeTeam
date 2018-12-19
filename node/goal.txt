@@ -1,0 +1,31 @@
+goal.txt
+
+
+INPUT:
+ - user picks a game 
+
+OUTPUT:
+ - system outputs good team
+
+END GOAL:
+ - user selects a game [eg. frlg, plat, etc]
+ - user specifies size of team [1 to 6]
+ - user can also pick some inital pkmn they know they want
+ - system outputs a sample team * [figure out and algorithm]
+
+ - user can click on one of the team members to replace
+ - pretty much a team builder but with auto-generation
+
+ algorithm:
+ - no glaring weakness
+ - even stat distribution
+
+
+
+next steps:
+ 1) if user selects a game, output six random fully evolved pokemon sprites from that game
+ 2) implement option to allow outputs of 1 to 6
+ 3) user can pre-pick some pokemon they know they want [dynamic drop down text input]
+ 4) user can click on one of the sprites to replace with another random one
+ 5) create the algorithm*
+ 6) make nice UI

@@ -14,8 +14,7 @@ app.get('/', function(req, res){
 });
 
 app.post('/', urlencodedParser, function(req, res){
-	//console.log(req.body.type);
-	api.params(req.body.type, req.body.region);
+	api.params(req.body.game);
 	api.out();
 	res.render('res');
 });
