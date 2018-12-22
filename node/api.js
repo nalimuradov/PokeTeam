@@ -16,13 +16,14 @@ function filter(r, callback){
 				pkmn.push(body.pokemon_entries[i].pokemon_species.name);
 
 			}
-			callback(pkmn);
+			//callback(pkmn);
+			callback(pkmn, output);
 		}
 	});
 }
 
 // gets all evolved pkmn from all games
-function filterEvo(callback){
+function filterEvo(pkmn, callback){
 	getEvo = {
 		method: 'GET',
 		url: 'https://pokeapi.co/api/v2/pokedex/1/'
@@ -41,16 +42,18 @@ function filterEvo(callback){
 					741,743,745,746,748,750,752,754,756,758,760,763,764,765,766,768,770,771,773,774,775,776,777,778,779,780,781,784,785,786,787,788,791,792,793,794,795,796,
 					797,798,799,800,801,802,804,805,806,807]
 
-	var evoNames = [];
-
 	request(getEvo, function(err, resp, body){
 		if (!err){
 			var body = JSON.parse(body);
 			for (i = 0; i < evoID.length; i++){
 				if (body.pokemon_entries[evoID[i]-1] != null){
 					evoNames.push(body.pokemon_entries[evoID[i]-1].pokemon_species.name);
+
+
+					// double filter and return 
 				}
 			}
+			//console.log(evoNames);
 			callback(evoNames);
 		}
 	});
@@ -68,6 +71,6 @@ module.exports = {
 	},
 
 	out: function(){
-		filter(r, output);
+		filter(r, filterEvo);
 	}
 };
