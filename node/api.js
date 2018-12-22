@@ -16,7 +16,6 @@ function filter(r, callback){
 				pkmn.push(body.pokemon_entries[i].pokemon_species.name);
 
 			}
-			//callback(pkmn);
 			callback(pkmn, output);
 		}
 	});
@@ -43,18 +42,26 @@ function filterEvo(pkmn, callback){
 					797,798,799,800,801,802,804,805,806,807]
 
 	request(getEvo, function(err, resp, body){
+		var evoNames = [];
 		if (!err){
 			var body = JSON.parse(body);
 			for (i = 0; i < evoID.length; i++){
 				if (body.pokemon_entries[evoID[i]-1] != null){
 					evoNames.push(body.pokemon_entries[evoID[i]-1].pokemon_species.name);
-
-
-					// double filter and return 
 				}
 			}
-			//console.log(evoNames);
-			callback(evoNames);
+
+			// double filter and return
+			var evoFilter = [];
+
+			for (i = 0; i < pkmn.length; i++){
+				for (j = 0; j < evoNames.length; j++){
+					if (evoNames[j] == pkmn[i]){
+						evoFilter.push(evoNames[j]);
+					}
+				}
+			}
+			callback(evoFilter);
 		}
 	});
 }
