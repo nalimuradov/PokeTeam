@@ -68,7 +68,12 @@ function filterEvo(pkmn, callback){
 
 // output to screen here
 function output(pkmn){
-	console.log(pkmn);
+	var six = [];
+	for (i = 0; i < 6; i++){
+		var rand = Math.floor(Math.random()*pkmn.length	) + 1;
+		six.push(pkmn[rand]);	
+	}
+	console.log(six);
 }
 
 var r;
