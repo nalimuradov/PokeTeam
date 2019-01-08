@@ -74,7 +74,11 @@ function output(pkmn){
 		six.push(pkmn[rand]);	
 	}
 	console.log(six);
+	// need to output 'six' to screen
+	//return six;
 }
+
+console.log(filter(5, filterEvo));
 
 var r;
 module.exports = {

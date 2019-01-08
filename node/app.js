@@ -15,8 +15,8 @@ app.get('/', function(req, res){
 
 app.post('/', urlencodedParser, function(req, res){
 	api.params(req.body.game);
-	api.out();
-	res.render('res');
+	//api.out();
+	res.render('res', {a: api.out()});
 });
 
 app.listen(port, () => console.log('listening'));
