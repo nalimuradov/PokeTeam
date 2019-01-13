@@ -15,36 +15,57 @@ class App extends React.Component {
 
   getPkmn = async (e) => {
     e.preventDefault();
-    //const r = e.target.elements.game.value;
-    const r = 1;
+    const r = e.target.elements.game.value;
+    //const r = 1;
     const apiCall = await fetch(`https://pokeapi.co/api/v2/pokedex/${r}/`); 
     const data = await apiCall.json();
-    var temp = [];
-    data.pokemon_entries.forEach(x => temp.push(x.pokemon_species.name));
-    var out = filter(temp);
-    this.setState({
-      pk1: out[Math.floor(Math.random()*152)],
-      pk2: out[Math.floor(Math.random()*152)],
-      pk3: out[Math.floor(Math.random()*152)],
-      pk4: out[Math.floor(Math.random()*152)],
-      pk5: out[Math.floor(Math.random()*152)],
-      pk6: out[Math.floor(Math.random()*152)]
-    });
-    //console.log(out);
+
+    if (r){
+      var temp = [];
+      data.pokemon_entries.forEach(x => temp.push(x.pokemon_species.name));
+      var out = filter(temp);
+      this.setState({
+        pk1: out[Math.floor(Math.random()*152)],
+        pk2: out[Math.floor(Math.random()*152)],
+        pk3: out[Math.floor(Math.random()*152)],
+        pk4: out[Math.floor(Math.random()*152)],
+        pk5: out[Math.floor(Math.random()*152)],
+        pk6: out[Math.floor(Math.random()*152)]
+      });
+      //console.log(out);
+    } else {
+      this.setState({
+        pk1: undefined,
+        pk2: undefined,
+        pk3: undefined,
+        pk4: undefined,
+        pk5: undefined,
+        pk6: undefined
+      });      
+    }
   };
   render() {
     return (
       <div>
-        <Titles />
-        <Form getPkmn={this.getPkmn}/>
-        <Pkmn
-            pk1={this.state.pk1}
-            pk2={this.state.pk2}
-            pk3={this.state.pk3}
-            pk4={this.state.pk4}
-            pk5={this.state.pk5}
-            pk6={this.state.pk6}
-        />
+        <div className="wrapper">
+          <div className="main">
+            <div className="container">
+              <div className="row">
+                <div className="col-xs-7 form-container">
+                  <Form getPkmn={this.getPkmn}/>
+                  <Pkmn
+                      pk1={this.state.pk1}
+                      pk2={this.state.pk2}
+                      pk3={this.state.pk3}
+                      pk4={this.state.pk4}
+                      pk5={this.state.pk5}
+                      pk6={this.state.pk6}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   };
