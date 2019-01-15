@@ -5,7 +5,6 @@ class Form extends React.Component {
 		return (
 			<form onSubmit={this.props.getPkmn}>
 				<input type='text' name='game' placeholder='Game...'/>
-				<input type='text' name='size' placeholder='Size...'/>
 				<button>Enter</button>
 			</form> 
 		);
@@ -13,3 +12,7 @@ class Form extends React.Component {
 };
 
 export default Form;
+
+/**
+<input type='text' name='size' placeholder='Size...'/>
+*/
