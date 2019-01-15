@@ -6,6 +6,7 @@ import Pkmn from "./components/pkmn";
 class App extends React.Component {
   state = {
     pk1: undefined,
+    pk1Img: undefined,
     pk2: undefined,
     pk3: undefined,
     pk4: undefined,
@@ -16,26 +17,37 @@ class App extends React.Component {
   getPkmn = async (e) => {
     e.preventDefault();
     const r = e.target.elements.game.value;
+    const size = e.target.elements.size.value;
     //const r = 1;
-    const apiCall = await fetch(`https://pokeapi.co/api/v2/pokedex/${r}/`); 
-    const data = await apiCall.json();
+    const apiCall = await fetch(`https://pokeapi.co/api/v2/pokedex/1/`); 
+    const regCall = await fetch(`https://pokeapi.co/api/v2/pokedex/${r}/`)
+    const dataNational = await apiCall.json();
+    const dataRegion = await regCall.json();
 
     if (r){
-      var temp = [];
-      data.pokemon_entries.forEach(x => temp.push(x.pokemon_species.name));
-      var out = filter(temp);
+      var natArr = [];
+      var regArr = [];
+      dataNational.pokemon_entries.forEach(x => natArr.push(x.pokemon_species.name));
+      dataRegion.pokemon_entries.forEach(x => regArr.push(x.pokemon_species.name));
+      var out = filter(natArr, regArr);
+      //console.log(out);
+
+      var team = assignTeam(size, out);
+      
       this.setState({
-        pk1: out[Math.floor(Math.random()*152)],
-        pk2: out[Math.floor(Math.random()*152)],
-        pk3: out[Math.floor(Math.random()*152)],
-        pk4: out[Math.floor(Math.random()*152)],
-        pk5: out[Math.floor(Math.random()*152)],
-        pk6: out[Math.floor(Math.random()*152)]
+        pk1: out[team[0]],
+        pk1Img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + out[team[0]] + '.png',
+        pk2: out[team[1]],
+        pk3: out[team[2]],
+        pk4: out[team[3]],
+        pk5: out[team[4]],
+        pk6: out[team[5]]
       });
       //console.log(out);
     } else {
       this.setState({
         pk1: undefined,
+        pk1Img: undefined,
         pk2: undefined,
         pk3: undefined,
         pk4: undefined,
@@ -55,6 +67,7 @@ class App extends React.Component {
                   <Form getPkmn={this.getPkmn}/>
                   <Pkmn
                       pk1={this.state.pk1}
+                      pk1Img={this.state.pk1Img}
                       pk2={this.state.pk2}
                       pk3={this.state.pk3}
                       pk4={this.state.pk4}
@@ -71,7 +84,7 @@ class App extends React.Component {
   };
 };
 
-function filter(arr){
+function filter(nat, reg){
   var evoID = [3,6,9,12,15,18,20,22,24,26,28,31,34,36,38,40,45,47,49,51,53,55,57,59,62,65,68,71,73,76,78,80,83,85,87,89,91,94,97,99,101,103,105,106,107,110,115,119,121,
           122,124,127,128,130,131,132,134,135,136,139,141,142,143,144,145,146,149,150,151,154,157,160,162,164,166,168,169,171,178,181,182,184,185,186,189,192,195,
           196,197,199,201,202,203,205,206,208,210,211,212,213,214,217,219,222,224,225,226,227,229,230,232,234,235,237,241,242,243,244,245,248,249,250,251,254,257,
@@ -85,14 +98,56 @@ function filter(arr){
           741,743,745,746,748,750,752,754,756,758,760,763,764,765,766,768,770,771,773,774,775,776,777,778,779,780,781,784,785,786,787,788,791,792,793,794,795,796,
           797,798,799,800,801,802,804,805,806,807];
 
+  var nameID = ["Venusaur","Charizard","Blastoise","Butterfree","Beedrill","Pidgeot","Raticate","Fearow","Arbok","Raichu","Sandslash","Nidoqueen","Nidoking","Clefable","Ninetales","Wigglytuff","Vileplume","Parasect","Venomoth","Dugtrio","Persian","Golduck","Primeape","Arcanine","Poliwrath","Alakazam","Machamp","Victreebel","Tentacruel","Golem","Rapidash","Slowbro","Farfetch'd","Dodrio","Dewgong","Muk","Cloyster","Gengar","Hypno","Kingler","Electrode","Exeggutor","Marowak","Hitmonlee","Hitmonchan","Weezing","Kangaskhan","Seaking","Starmie","Mr. Mime","Jynx","Pinsir","Tauros","Gyarados","Lapras","Ditto","Vaporeon","Jolteon","Flareon","Omastar","Kabutops","Aerodactyl","Snorlax","Articuno","Zapdos","Moltres","Dragonite","Mewtwo","Mew","Meganium","Typhlosion","Feraligatr","Furret","Noctowl","Ledian","Ariados","Crobat","Lanturn","Xatu","Ampharos","Bellossom","Azumarill","Sudowoodo","Politoed","Jumpluff","Sunflora","Quagsire","Espeon","Umbreon","Slowking","Unown","Wobbuffet","Girafarig","Forretress","Dunsparce","Steelix","Granbull","Qwilfish","Scizor","Shuckle","Heracross","Ursaring","Magcargo","Corsola","Octillery","Delibird","Mantine","Skarmory","Houndoom","Kingdra","Donphan","Stantler","Smeargle","Hitmontop","Miltank","Blissey","Raikou","Entei","Suicune","Tyranitar","Lugia","Ho-Oh","Celebi","Sceptile","Blaziken","Swampert","Mightyena","Linoone","Beautifly","Dustox","Ludicolo","Shiftry","Swellow","Pelipper","Gardevoir","Masquerain","Breloom","Slaking","Ninjask","Shedinja","Exploud","Hariyama","Delcatty","Sableye","Mawile","Aggron","Medicham","Manectric","Plusle","Minun","Volbeat","Illumise","Swalot","Sharpedo","Wailord","Camerupt","Torkoal","Grumpig","Spinda","Flygon","Cacturne","Altaria","Zangoose","Seviper","Lunatone","Solrock","Whiscash","Crawdaunt","Claydol","Cradily","Armaldo","Milotic","Castform","Kecleon","Banette","Tropius","Chimecho","Absol","Glalie","Walrein","Huntail","Gorebyss","Relicanth","Luvdisc","Salamence","Metagross","Regirock","Regice","Registeel","Latias","Latios","Kyogre","Groudon","Rayquaza","Jirachi","Deoxys","Torterra","Infernape","Empoleon","Staraptor","Bibarel","Kricketune","Luxray","Roserade","Rampardos","Bastiodon","Wormadam","Mothim","Vespiquen","Pachirisu","Floatzel","Cherrim","Gastrodon","Ambipom","Drifblim","Lopunny","Mismagius","Honchkrow","Purugly","Skuntank","Bronzong","Chatot","Spiritomb","Garchomp","Lucario","Hippowdon","Drapion","Toxicroak","Carnivine","Lumineon","Abomasnow","Weavile","Magnezone","Lickilicky","Rhyperior","Tangrowth","Electivire","Magmortar","Togekiss","Yanmega","Leafeon","Glaceon","Gliscor","Mamoswine","Porygon-Z","Gallade","Probopass","Dusknoir","Froslass","Rotom","Uxie","Mesprit","Azelf","Dialga","Palkia","Heatran","Regigigas","Giratina","Cresselia","Phione","Manaphy","Darkrai","Shaymin","Arceus","Victini","Serperior","Emboar","Samurott","Watchog","Stoutland","Liepard","Simisage","Simisear","Simipour","Musharna","Unfezant","Zebstrika","Gigalith","Swoobat","Excadrill","Audino","Conkeldurr","Seismitoad","Throh","Sawk","Leavanny","Scolipede","Whimsicott","Lilligant","Basculin","Krookodile","Darmanitan","Maractus","Crustle","Scrafty","Sigilyph","Cofagrigus","Carracosta","Archeops","Garbodor","Zoroark","Cinccino","Gothitelle","Reuniclus","Swanna","Vanilluxe","Sawsbuck","Emolga","Escavalier","Amoonguss","Jellicent","Alomomola","Galvantula","Ferrothorn","Klinklang","Eelektross","Beheeyem","Chandelure","Haxorus","Beartic","Cryogonal","Accelgor","Stunfisk","Mienshao","Druddigon","Golurk","Bisharp","Bouffalant","Braviary","Mandibuzz","Heatmor","Durant","Hydreigon","Volcarona","Cobalion","Terrakion","Virizion","Tornadus","Thundurus","Reshiram","Zekrom","Landorus","Kyurem","Keldeo","Meloetta","Genesect","Chesnaught","Delphox","Greninja","Diggersby","Talonflame","Vivillon","Pyroar","Florges","Gogoat","Pangoro","Furfrou","Meowstic","Aegislash","Aromatisse","Slurpuff","Malamar","Barbaracle","Dragalge","Clawitzer","Heliolisk","Tyrantrum","Aurorus","Sylveon","Hawlucha","Dedenne","Carbink","Goodra","Klefki","Trevenant","Gourgeist","Avalugg","Noivern","Xerneas","Yveltal","Zygarde","Diancie","Hoopa","Volcanion","Decidueye","Incineroar","Primarina","Toucannon","Gumshoos","Vikavolt","Crabominable","Oricorio","Ribombee","Lycanroc","Wishiwashi","Toxapex","Mudsdale","Araquanid","Lurantis","Shiinotic","Salazzle","Bewear","Tsareena","Comfey","Oranguru","Passimian","Golisopod","Palossand","Pyukumuku","Silvally","Minior","Komala","Turtonator","Togedemaru","Mimikyu","Bruxish","Drampa","Dhelmise","Kommo-o","Tapu Koko","Tapu Lele","Tapu Bulu","Tapu Fini","Solgaleo","Lunala","Nihilego","Buzzwole","Pheromosa","Xurkitree","Celesteela","Kartana","Guzzlord","Necrozma","Magearna","Marshadow","Naganadel","Stakataka","Blacephalon","Zeraora"]
+
+
       var output = [];
 
       for (var i = 0; i < evoID.length; i++){
-        output.push(arr[evoID[i]-1]);
+        if (nat[evoID[i]-1] != null){
+          output.push(nat[evoID[i]-1]);
+        }    
       }
 
-      return output;
+      var out = [];
+
+      for (var i = 0; i < output.length; i++){
+        for (var j = 0; j < reg.length; j++){
+          if (reg[j] === output[i]){
+            out.push(reg[j]);
+          }
+        }
+      }
+
+      return out;
 
 }
 
+function assignTeam(size, out){
+  var n = [];
+  n[0] = Math.floor(Math.random()*out.length);
+  for (var i = 1; i < size; i++){
+    n[i] = Math.floor(Math.random()*out.length);
+  }
+
+  return n;
+}
+
 export default App;
+
+/*
+ 1 - national
+ 2 - kanto
+ 3 - original-johto
+ 4 - hoenn
+ 5 - original-sinnoh
+ 6 - extenden-sinnoh
+ 7 - updated-johto
+ 8 - original-unova
+ 9 - updated-unova
+ 12 - kalos-central
+ 13 - kalos-coastal
+ 14 - kalos-mountain
+ 15 - updated-hoenn
+
+*/
