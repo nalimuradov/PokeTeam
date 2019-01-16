@@ -80,8 +80,7 @@ class App extends React.Component {
         <div className="wrapper">
           <div className="main">
             <div className="container">
-              <div className="row">
-                <div className="col-xs-6 form-container">
+              <div className="form-container">
                   <Form getPkmn={this.getPkmn}/> 
                   <Pkmn
                       pk1={this.state.pk1}
@@ -90,10 +89,6 @@ class App extends React.Component {
                       pk2Img={this.state.pk2Img}
                       pk3={this.state.pk3}
                       pk3Img={this.state.pk3Img}
-                  />
-                </div>
-                <div className='col-xs-6 form-container'>
-                  <Pkmn 
                       pk4={this.state.pk4}
                       pk4Img={this.state.pk4Img}
                       pk5={this.state.pk5}
@@ -101,7 +96,6 @@ class App extends React.Component {
                       pk6={this.state.pk6}
                       pk6Img={this.state.pk6Img}
                    />
-                </div>
               </div>
             </div>
           </div>

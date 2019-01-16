@@ -1,0 +1,33 @@
+react notes
+
+important:
+ - components: core building blocks
+ - jsx: react's wrapper around js, let's you build components html-style
+ - styling: make components look nice
+ - props: pass data around application
+ - state: maintain and change data in application
+ - event handling: allows strong interactivity with users
+ - lifecycle methods: can hook into different timing events of components
+ - fetching data: from api using http
+ - forms: good for UX
+
+why react?
+ - speed: uses the virtual DOM
+ - can create reusable web components: sort of like html variables
+ - maintained by facebook
+
+ES6
+ - ecmascript 6
+ - var -> const, let
+
+**
+ - everything is going to have to tie back to an html page of some sort
+ - the js we write will be boiled down to elements on a page
+
+
+TODO
+ - make UI very nice
+ - remove duplicates
+ - add other options (starters, legends)
+ - implement algorithm (for non rand teams)
+ - host react on github pages
