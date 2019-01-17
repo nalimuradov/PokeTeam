@@ -1,5 +1,4 @@
 import React from "react";
-import Titles from "./components/titles";
 import Form from "./components/form";
 import Pkmn from "./components/pkmn";
 
@@ -117,9 +116,9 @@ function filter(nat, reg){
 
       var out = [];
 
-      for (var i = 0; i < output.length; i++){
+      for (var k = 0; k < output.length; k++){
         for (var j = 0; j < reg.length; j++){
-          if (reg[j] === output[i]){
+          if (reg[j] === output[k]){
             out.push(reg[j]);
           }
         }
@@ -145,7 +144,7 @@ function getNumFromName(x){
   var index = 0;
   for (var i = 0; i < names.length; i++){
     if (x != null){
-      if (names[i].toUpperCase() == x.toUpperCase()){
+      if (names[i].toUpperCase() === x.toUpperCase()){
         index = i;
         break;
       }

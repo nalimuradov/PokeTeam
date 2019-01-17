@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Merripkmn:100,200,300,300i,400,400i,700');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
 
@@ -28,6 +27,7 @@ body {
   padding-right: 50px;
   padding-top: 100px;
   padding-left: 50px;
+  text-align: center;
 }
 
 input[type="text"] {
@@ -94,4 +94,8 @@ button:active {
   font-size: 20px;
   letter-spacing: 1px;
   font-weight: 200;
+}
+
+#nope {
+  width: 100px;
 }
