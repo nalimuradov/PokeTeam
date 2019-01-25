@@ -24,7 +24,7 @@ class App extends React.Component {
     //const size = e.target.elements.size.value;
     const size = 6;
     //const r = 1;
-    const apiCall = await fetch(`https://pokeapi.co/api/v2/pokedex/1/`); 
+    const apiCall = await fetch(`https://pokeapi.co/api/v2/pokedex/1/`);
     const regCall = await fetch(`https://pokeapi.co/api/v2/pokedex/${r}/`)
     const dataNational = await apiCall.json();
     const dataRegion = await regCall.json();
@@ -40,7 +40,7 @@ class App extends React.Component {
       var team = assignTeam(size, out);
 
       console.log()
-      
+
       this.setState({
         pk1: out[team[0]],
         pk1Img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + nums()[getNumFromName(out[team[0]])] + '.png',
@@ -70,7 +70,7 @@ class App extends React.Component {
         pk5Img: undefined,
         pk6: undefined,
         pk6Img: undefined
-      });      
+      });
     }
   };
   render() {
@@ -80,7 +80,7 @@ class App extends React.Component {
           <div className="main">
             <div className="container">
               <div className="form-container">
-                  <Form getPkmn={this.getPkmn}/> 
+                  <Form getPkmn={this.getPkmn}/>
                   <Pkmn
                       pk1={this.state.pk1}
                       pk1Img={this.state.pk1Img}
@@ -111,7 +111,7 @@ function filter(nat, reg){
       for (var i = 0; i < nums().length; i++){
         if (nat[nums()[i]-1] != null){
           output.push(nat[nums()[i]-1]);
-        }    
+        }
       }
 
       var out = [];
@@ -150,7 +150,7 @@ function getNumFromName(x){
       }
     } else {
       return -1;
-    } 
+    }
   }
   return index;
 }
