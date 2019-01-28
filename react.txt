@@ -26,8 +26,6 @@ ES6
 
 
 TODO
- - make UI very nice
- - remove duplicates
- - add other options (starters, legends)
+ - add games on the left
+ - add starter/legend options
  - implement algorithm (for non rand teams)
- - host react on github pages

@@ -1,6 +1,7 @@
 import React from "react";
 import Form from "./components/form";
 import Pkmn from "./components/pkmn";
+import Titles from "./components/titles";
 
 class App extends React.Component {
   state = {
@@ -125,17 +126,64 @@ function filter(nat, reg){
       }
 
       return out;
-
 }
 
 // takes in the size and makes team for specified reg
 function assignTeam(size, out){
   var n = [];
   n[0] = Math.floor(Math.random()*out.length);
+
+  while (true){
+    n[1] = Math.floor(Math.random()*out.length);
+    if (n[1] === n[0]){
+      continue;
+    } else {
+      break;
+    }
+  }
+
+  while (true){
+    n[2] = Math.floor(Math.random()*out.length);
+    if (n[2] === n[1] || n[2] === n[0]){
+      continue;
+    } else {
+      break;
+    }
+  }
+
+  while (true){
+    n[3] = Math.floor(Math.random()*out.length);
+    if (n[3] === n[2] || n[3] === n[1] || n[3] === n[0]){
+      continue;
+    } else {
+      break;
+    }
+  }
+
+  while (true){
+    n[4] = Math.floor(Math.random()*out.length);
+    if (n[4] === n[3] || n[4] === n[2] || n[4] === n[1] || n[4] === n[0]){
+      continue;
+    } else {
+      break;
+    }
+  }
+
+  while (true){
+    n[5] = Math.floor(Math.random()*out.length);
+    if (n[5] === n[4] || n[5] === n[3] || n[5] === n[2] || n[5] === n[1] || n[5] === n[0]){
+      continue;
+    } else {
+      break;
+    }
+  }
+
+
+  /*
   for (var i = 1; i < size; i++){
     n[i] = Math.floor(Math.random()*out.length);
   }
-
+  */
   return n;
 }
 

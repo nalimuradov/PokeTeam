@@ -6,6 +6,7 @@ class Form extends React.Component {
 			<form onSubmit={this.props.getPkmn}>
 				<input type='text' name='game' placeholder='Game...'/>
 				<button>Enter</button>
+				<button></button>
 			</form> 
 		);
 	}
