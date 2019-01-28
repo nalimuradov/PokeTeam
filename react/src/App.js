@@ -78,7 +78,7 @@ class App extends React.Component {
     return (
       <div>
         <div className="wrapper">
-          <div className="main">
+          
             <div className="container">
               <div className="form-container">
                   <Form getPkmn={this.getPkmn}/>
@@ -99,7 +99,7 @@ class App extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        
       </div>
     );
   };

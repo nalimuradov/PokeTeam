@@ -29,3 +29,4 @@ TODO
  - add games on the left
  - add starter/legend options
  - implement algorithm (for non rand teams)
+ - fix farfetchd/mrmime/etc 
