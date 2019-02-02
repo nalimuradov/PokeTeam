@@ -14,8 +14,8 @@ class Form extends React.Component {
 				  <option value="Kalos">Kalos</option>
 				</select>
 			</div>
-				<input type="checkbox" id="check" name="starters" value="Starters" /> <p id='lab'>Starters</p>
-				<input type="checkbox" id="check" name="legendaries" value="Legendaries" /> <p id='lab'>Legendaries</p>
+				<input type="checkbox" id="check" name="starters" value="Starters"/> <p id='lab'>Starters</p>
+				<input type="checkbox" id="check" name="legendaries" value="Legendaries"/> <p id='lab'>Legendaries</p>
 				<button>Generate</button>
 			</form>
 		);

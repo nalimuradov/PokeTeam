@@ -56,21 +56,19 @@ class App extends React.Component {
 
       var team = assignTeam(size, out);
 
-      console.log()
-
       this.setState({
         pk1: out[team[0]],
-        pk1Img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + nums(starters, legendaries)[getNumFromName(out[team[0]])] + '.png',
+        pk1Img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + nums()[getNumFromName(out[team[0]], legendaries, starters)] + '.png',
         pk2: out[team[1]],
-        pk2Img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + nums(false, legendaries)[getNumFromName(out[team[1]])] + '.png',
+        pk2Img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + nums()[getNumFromName(out[team[1]], legendaries, starters)] + '.png',
         pk3: out[team[2]],
-        pk3Img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + nums(false, legendaries)[getNumFromName(out[team[2]])] + '.png',
+        pk3Img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + nums()[getNumFromName(out[team[2]], legendaries, starters)] + '.png',
         pk4: out[team[3]],
-        pk4Img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + nums(false, legendaries)[getNumFromName(out[team[3]])] + '.png',
+        pk4Img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + nums()[getNumFromName(out[team[3]], legendaries, starters)] + '.png',
         pk5: out[team[4]],
-        pk5Img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + nums(false, legendaries)[getNumFromName(out[team[4]])] + '.png',
+        pk5Img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + nums()[getNumFromName(out[team[4]], legendaries, starters)] + '.png',
         pk6: out[team[5]],
-        pk6Img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + nums(false, legendaries)[getNumFromName(out[team[5]])] + '.png'
+        pk6Img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + nums()[getNumFromName(out[team[5]], legendaries, starters)] + '.png'
       });
       //console.log(out);
     } else {
@@ -144,6 +142,10 @@ function filter(nat, reg){
       return out;
 }
 
+Array.prototype.diff = function(a) {
+  return this.filter(function(i) {return a.indexOf(i) < 0;});
+};
+
 // takes in the size and makes team for specified reg
 function assignTeam(size, out){
   var n = [];
@@ -205,7 +207,9 @@ function assignTeam(size, out){
 
 function getNumFromName(x){
   var names = ["Venusaur","Charizard","Blastoise","Butterfree","Beedrill","Pidgeot","Raticate","Fearow","Arbok","Raichu","Sandslash","Nidoqueen","Nidoking","Clefable","Ninetales","Wigglytuff","Vileplume","Parasect","Venomoth","Dugtrio","Persian","Golduck","Primeape","Arcanine","Poliwrath","Alakazam","Machamp","Victreebel","Tentacruel","Golem","Rapidash","Slowbro","Farfetchd","Dodrio","Dewgong","Muk","Cloyster","Gengar","Hypno","Kingler","Electrode","Exeggutor","Marowak","Hitmonlee","Hitmonchan","Weezing","Kangaskhan","Seaking","Starmie","Mr-Mime","Jynx","Pinsir","Tauros","Gyarados","Lapras","Ditto","Vaporeon","Jolteon","Flareon","Omastar","Kabutops","Aerodactyl","Snorlax","Articuno","Zapdos","Moltres","Dragonite","Mewtwo","Mew","Meganium","Typhlosion","Feraligatr","Furret","Noctowl","Ledian","Ariados","Crobat","Lanturn","Xatu","Ampharos","Bellossom","Azumarill","Sudowoodo","Politoed","Jumpluff","Sunflora","Quagsire","Espeon","Umbreon","Slowking","Unown","Wobbuffet","Girafarig","Forretress","Dunsparce","Steelix","Granbull","Qwilfish","Scizor","Shuckle","Heracross","Ursaring","Magcargo","Corsola","Octillery","Delibird","Mantine","Skarmory","Houndoom","Kingdra","Donphan","Stantler","Smeargle","Hitmontop","Miltank","Blissey","Raikou","Entei","Suicune","Tyranitar","Lugia","Ho-Oh","Celebi","Sceptile","Blaziken","Swampert","Mightyena","Linoone","Beautifly","Dustox","Ludicolo","Shiftry","Swellow","Pelipper","Gardevoir","Masquerain","Breloom","Slaking","Ninjask","Shedinja","Exploud","Hariyama","Delcatty","Sableye","Mawile","Aggron","Medicham","Manectric","Plusle","Minun","Volbeat","Illumise","Swalot","Sharpedo","Wailord","Camerupt","Torkoal","Grumpig","Spinda","Flygon","Cacturne","Altaria","Zangoose","Seviper","Lunatone","Solrock","Whiscash","Crawdaunt","Claydol","Cradily","Armaldo","Milotic","Castform","Kecleon","Banette","Tropius","Chimecho","Absol","Glalie","Walrein","Huntail","Gorebyss","Relicanth","Luvdisc","Salamence","Metagross","Regirock","Regice","Registeel","Latias","Latios","Kyogre","Groudon","Rayquaza","Jirachi","Deoxys","Torterra","Infernape","Empoleon","Staraptor","Bibarel","Kricketune","Luxray","Roserade","Rampardos","Bastiodon","Wormadam","Mothim","Vespiquen","Pachirisu","Floatzel","Cherrim","Gastrodon","Ambipom","Drifblim","Lopunny","Mismagius","Honchkrow","Purugly","Skuntank","Bronzong","Chatot","Spiritomb","Garchomp","Lucario","Hippowdon","Drapion","Toxicroak","Carnivine","Lumineon","Abomasnow","Weavile","Magnezone","Lickilicky","Rhyperior","Tangrowth","Electivire","Magmortar","Togekiss","Yanmega","Leafeon","Glaceon","Gliscor","Mamoswine","Porygon-Z","Gallade","Probopass","Dusknoir","Froslass","Rotom","Uxie","Mesprit","Azelf","Dialga","Palkia","Heatran","Regigigas","Giratina","Cresselia","Phione","Manaphy","Darkrai","Shaymin","Arceus","Victini","Serperior","Emboar","Samurott","Watchog","Stoutland","Liepard","Simisage","Simisear","Simipour","Musharna","Unfezant","Zebstrika","Gigalith","Swoobat","Excadrill","Audino","Conkeldurr","Seismitoad","Throh","Sawk","Leavanny","Scolipede","Whimsicott","Lilligant","Basculin","Krookodile","Darmanitan","Maractus","Crustle","Scrafty","Sigilyph","Cofagrigus","Carracosta","Archeops","Garbodor","Zoroark","Cinccino","Gothitelle","Reuniclus","Swanna","Vanilluxe","Sawsbuck","Emolga","Escavalier","Amoonguss","Jellicent","Alomomola","Galvantula","Ferrothorn","Klinklang","Eelektross","Beheeyem","Chandelure","Haxorus","Beartic","Cryogonal","Accelgor","Stunfisk","Mienshao","Druddigon","Golurk","Bisharp","Bouffalant","Braviary","Mandibuzz","Heatmor","Durant","Hydreigon","Volcarona","Cobalion","Terrakion","Virizion","Tornadus","Thundurus","Reshiram","Zekrom","Landorus","Kyurem","Keldeo","Meloetta","Genesect","Chesnaught","Delphox","Greninja","Diggersby","Talonflame","Vivillon","Pyroar","Florges","Gogoat","Pangoro","Furfrou","Meowstic","Aegislash","Aromatisse","Slurpuff","Malamar","Barbaracle","Dragalge","Clawitzer","Heliolisk","Tyrantrum","Aurorus","Sylveon","Hawlucha","Dedenne","Carbink","Goodra","Klefki","Trevenant","Gourgeist","Avalugg","Noivern","Xerneas","Yveltal","Zygarde","Diancie","Hoopa","Volcanion","Decidueye","Incineroar","Primarina","Toucannon","Gumshoos","Vikavolt","Crabominable","Oricorio","Ribombee","Lycanroc","Wishiwashi","Toxapex","Mudsdale","Araquanid","Lurantis","Shiinotic","Salazzle","Bewear","Tsareena","Comfey","Oranguru","Passimian","Golisopod","Palossand","Pyukumuku","Silvally","Minior","Komala","Turtonator","Togedemaru","Mimikyu","Bruxish","Drampa","Dhelmise","Kommo-o","Tapu Koko","Tapu Lele","Tapu Bulu","Tapu Fini","Solgaleo","Lunala","Nihilego","Buzzwole","Pheromosa","Xurkitree","Celesteela","Kartana","Guzzlord","Necrozma","Magearna","Marshadow","Naganadel","Stakataka","Blacephalon","Zeraora"];
+  //var legend = ["Articuno", "Zapdos", "Moltres", "Mewtwo", "Mew", "Raikou", "Entei", "Suicune", "Lugia", "Ho-Oh", "Celebi", "Regirock", "Regice", "Registeel", "Latias", "Latios", "Kyogre", "Groudon", "Rayquaza", "Jirachi", "Deoxys", "Uxie", "Mesprit", "Azelf", "Dialga", "Palkia", "Heatran", "Regigigas", "Giratina", "Cresselia", "Phione", "Manaphy", "Darkrai", "Shaymin", "Arceus", "Victini", "Cobalion", "Terrakion", "Virizion", "Tornadus", "Thundurus", "Reshiram", "Zekrom", "Landorus", "Kyurem", "Keldeo", "Meloetta", "Genesect", "Xerneas", "Yveltal", "Zygarde", "Diancie", "Hoopa", "Volcanion"];
   var index = 0;
+
   for (var i = 0; i < names.length; i++){
     if (x != null){
       if (names[i].toUpperCase() === x.toUpperCase()){
@@ -219,7 +223,7 @@ function getNumFromName(x){
   return index;
 }
 
-function nums(starters, legendaries){
+function nums(){
   var num = [3,6,9,12,15,18,20,22,24,26,28,31,34,36,38,40,45,47,49,51,53,55,57,59,62,65,68,71,73,76,78,80,83,85,87,89,91,94,97,99,101,103,105,106,107,110,115,119,121,
           122,124,127,128,130,131,132,134,135,136,139,141,142,143,144,145,146,149,150,151,154,157,160,162,164,166,168,169,171,178,181,182,184,185,186,189,192,195,
           196,197,199,201,202,203,205,206,208,210,211,212,213,214,217,219,222,224,225,226,227,229,230,232,234,235,237,241,242,243,244,245,248,249,250,251,254,257,
@@ -232,7 +236,6 @@ function nums(starters, legendaries){
           671,673,675,676,678,681,683,685,687,689,691,693,695,697,699,700,701,702,703,706,707,709,711,713,715,716,717,718,719,720,721,724,727,730,733,735,738,740,
           741,743,745,746,748,750,752,754,756,758,760,763,764,765,766,768,770,771,773,774,775,776,777,778,779,780,781,784,785,786,787,788,791,792,793,794,795,796,
           797,798,799,800,801,802,804,805,806,807];
-
   return num;
 }
 
