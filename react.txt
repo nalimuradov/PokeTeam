@@ -26,7 +26,6 @@ ES6
 
 
 TODO
- - add games on the left
- - add starter/legend options
+ - starter/legend options
  - implement algorithm (for non rand teams)
- - fix farfetchd/mrmime/etc 
+
