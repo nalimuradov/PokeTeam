@@ -27,5 +27,6 @@ ES6
 
 TODO
  - starter/legend options
- - implement algorithm (for non rand teams)
+ - make UI smooth with info
+ - add replace on click
 
