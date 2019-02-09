@@ -1,15 +1,15 @@
 {
-  "main.css": "/pkAPI/static/css/main.32ac3d0a.chunk.css",
-  "main.js": "/pkAPI/static/js/main.87d11215.chunk.js",
-  "main.js.map": "/pkAPI/static/js/main.87d11215.chunk.js.map",
+  "main.css": "/pkAPI/static/css/main.da46e5d6.chunk.css",
+  "main.js": "/pkAPI/static/js/main.cc553b2d.chunk.js",
+  "main.js.map": "/pkAPI/static/js/main.cc553b2d.chunk.js.map",
   "static/css/1.1f0cc4e8.chunk.css": "/pkAPI/static/css/1.1f0cc4e8.chunk.css",
   "static/js/1.1292eded.chunk.js": "/pkAPI/static/js/1.1292eded.chunk.js",
   "static/js/1.1292eded.chunk.js.map": "/pkAPI/static/js/1.1292eded.chunk.js.map",
   "runtime~main.js": "/pkAPI/static/js/runtime~main.9c0ba168.js",
   "runtime~main.js.map": "/pkAPI/static/js/runtime~main.9c0ba168.js.map",
-  "static/css/main.32ac3d0a.chunk.css.map": "/pkAPI/static/css/main.32ac3d0a.chunk.css.map",
   "static/css/1.1f0cc4e8.chunk.css.map": "/pkAPI/static/css/1.1f0cc4e8.chunk.css.map",
+  "static/css/main.da46e5d6.chunk.css.map": "/pkAPI/static/css/main.da46e5d6.chunk.css.map",
   "index.html": "/pkAPI/index.html",
-  "precache-manifest.b8812e5f14f334a606416586925155ba.js": "/pkAPI/precache-manifest.b8812e5f14f334a606416586925155ba.js",
+  "precache-manifest.9620205ab9e5d8726609b4a70796e6a7.js": "/pkAPI/precache-manifest.9620205ab9e5d8726609b4a70796e6a7.js",
   "service-worker.js": "/pkAPI/service-worker.js"
 }
