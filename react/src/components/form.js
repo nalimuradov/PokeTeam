@@ -5,6 +5,7 @@ class Form extends React.Component {
 		return (
 			<form onSubmit={this.props.getPkmn}>
 			<div>
+				<p id="title">Pokémon Team Generator</p>
 				<select id="regions" name="regions">
 				  <option value="Kanto">Kanto</option>
 				  <option value="Johto">Johto</option>
