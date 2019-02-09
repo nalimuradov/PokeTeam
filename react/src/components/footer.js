@@ -4,7 +4,7 @@ class Footer extends React.Component {
 	render(){
 		return (
 			<div>
-				<p id="footer">Pokemon is © Nintendo</p>
+				<p id="footer">Pokémon is © Nintendo</p>
 			</div>
 		);
 	}

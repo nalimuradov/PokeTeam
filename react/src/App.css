@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
 
+html, body {
+    margin:0;
+    padding:0;
+}
+
 body {
   font-family: "Open Sans", serif;
 }
@@ -22,9 +27,10 @@ body {
 
 .form-container {
   background-color: #211a23;
-  height: 80vh;
+  
   padding-right: 50px;
   padding-top: 100px;
+  padding-bottom: 100px;
   padding-left: 50px;
   text-align: center;
   border: 1px solid white;
@@ -142,6 +148,7 @@ input[type=checkbox]
   align-items: center;
   margin: 0 auto;
   float: none;
+  padding-bottom: 10px;
 }
 
 #footer {

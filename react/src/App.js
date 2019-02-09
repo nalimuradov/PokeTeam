@@ -124,7 +124,7 @@ class App extends React.Component {
 
 function filter(nat, reg, l, s){
       var legend = ["Articuno", "Zapdos", "Moltres", "Mewtwo", "Mew", "Raikou", "Entei", "Suicune", "Lugia", "Ho-Oh", "Celebi", "Regirock", "Regice", "Registeel", "Latias", "Latios", "Kyogre", "Groudon", "Rayquaza", "Jirachi", "Deoxys", "Uxie", "Mesprit", "Azelf", "Dialga", "Palkia", "Heatran", "Regigigas", "Giratina", "Cresselia", "Phione", "Manaphy", "Darkrai", "Shaymin", "Arceus", "Victini", "Cobalion", "Terrakion", "Virizion", "Tornadus", "Thundurus", "Reshiram", "Zekrom", "Landorus", "Kyurem", "Keldeo", "Meloetta", "Genesect", "Xerneas", "Yveltal", "Zygarde", "Diancie", "Hoopa", "Volcanion"];
-      var starter = ["Venusaur", "Charizard", "Blastoise", "Meganium", "Typhlosion", "Feraligatr", "Sceptile", "Blaziken", "Swampert", "Torterra", "Infernape", "Empoleon", "Serperior", "Emboar", "Samurott", "Decidueye", "Incineroar", "Primarina"]; 
+      var starter = ["Venusaur", "Charizard", "Blastoise", "Meganium", "Typhlosion", "Feraligatr", "Sceptile", "Blaziken", "Swampert", "Torterra", "Infernape", "Empoleon", "Serperior", "Emboar", "Samurott", "Chesnaught", "Delphox", "Greninja", "Decidueye", "Incineroar", "Primarina"]; 
       var output = [];
 
       for (var i = 0; i < nums().length; i++){
