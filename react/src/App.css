@@ -54,7 +54,7 @@ input:-webkit-autofill {
 }
 
 button {
-  border: 0;
+  border: 1px solid white;
   padding: 8px 20px;
   margin: 0 2px;
   border-radius: 2px;
@@ -62,7 +62,7 @@ button {
   letter-spacing: 1px;
   font-size: 15px;
   cursor: pointer;
-  background-color: #f16051;
+  background-color: #B22222;
   color: #fff;
   font-weight: 500;
 }
@@ -72,6 +72,10 @@ button:hover {
 }
 
 button:active {
+  outline: none;
+}
+
+button:focus {
   outline: none;
 }
 
