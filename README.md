@@ -1,4 +1,4 @@
 # pokeTeam
 
-Team generator website for Pokemon.
+Team generator for Pokemon.
 https://nalimuradov.github.io/pkAPI/
