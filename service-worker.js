@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/pkAPI/precache-manifest.9620205ab9e5d8726609b4a70796e6a7.js"
+  "/pokeTeam/precache-manifest.2381e4c2bf04a3cc54f3427939f0e127.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/pkAPI/index.html", {
+workbox.routing.registerNavigationRoute("/pokeTeam/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
