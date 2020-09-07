@@ -1,4 +1,4 @@
 # pokeTeam
 
-Team generator for Pokemon.
+Team generator for Pokemon - made using ReactJS.
 https://nalimuradov.github.io/pokeTeam/
