@@ -1,15 +1,15 @@
 {
-  "main.css": "/pokeTeam/static/css/main.f04f8aa9.chunk.css",
-  "main.js": "/pokeTeam/static/js/main.44a71c77.chunk.js",
-  "main.js.map": "/pokeTeam/static/js/main.44a71c77.chunk.js.map",
-  "static/css/1.9590ac78.chunk.css": "/pokeTeam/static/css/1.9590ac78.chunk.css",
-  "static/js/1.1de84628.chunk.js": "/pokeTeam/static/js/1.1de84628.chunk.js",
-  "static/js/1.1de84628.chunk.js.map": "/pokeTeam/static/js/1.1de84628.chunk.js.map",
-  "runtime~main.js": "/pokeTeam/static/js/runtime~main.b126484e.js",
-  "runtime~main.js.map": "/pokeTeam/static/js/runtime~main.b126484e.js.map",
-  "static/css/1.9590ac78.chunk.css.map": "/pokeTeam/static/css/1.9590ac78.chunk.css.map",
-  "static/css/main.f04f8aa9.chunk.css.map": "/pokeTeam/static/css/main.f04f8aa9.chunk.css.map",
-  "index.html": "/pokeTeam/index.html",
-  "precache-manifest.2381e4c2bf04a3cc54f3427939f0e127.js": "/pokeTeam/precache-manifest.2381e4c2bf04a3cc54f3427939f0e127.js",
-  "service-worker.js": "/pokeTeam/service-worker.js"
+  "main.css": "/pokemon_team/static/css/main.4391ff46.chunk.css",
+  "main.js": "/pokemon_team/static/js/main.39c34847.chunk.js",
+  "main.js.map": "/pokemon_team/static/js/main.39c34847.chunk.js.map",
+  "static/css/1.e1a5f5e0.chunk.css": "/pokemon_team/static/css/1.e1a5f5e0.chunk.css",
+  "static/js/1.22efd2cd.chunk.js": "/pokemon_team/static/js/1.22efd2cd.chunk.js",
+  "static/js/1.22efd2cd.chunk.js.map": "/pokemon_team/static/js/1.22efd2cd.chunk.js.map",
+  "runtime~main.js": "/pokemon_team/static/js/runtime~main.466309a6.js",
+  "runtime~main.js.map": "/pokemon_team/static/js/runtime~main.466309a6.js.map",
+  "static/css/1.e1a5f5e0.chunk.css.map": "/pokemon_team/static/css/1.e1a5f5e0.chunk.css.map",
+  "static/css/main.4391ff46.chunk.css.map": "/pokemon_team/static/css/main.4391ff46.chunk.css.map",
+  "index.html": "/pokemon_team/index.html",
+  "precache-manifest.ccbcd5c08c67d34ed0501a933df5e2fc.js": "/pokemon_team/precache-manifest.ccbcd5c08c67d34ed0501a933df5e2fc.js",
+  "service-worker.js": "/pokemon_team/service-worker.js"
 }
