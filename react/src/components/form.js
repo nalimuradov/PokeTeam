@@ -24,7 +24,3 @@ class Form extends React.Component {
 };
 
 export default Form;
-
-/**
-<input type='text' name='size' placeholder='Size...'/>
-*/
