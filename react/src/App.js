@@ -1,3 +1,5 @@
+// Main App
+
 import React from "react";
 import Form from "./components/form";
 import Pkmn from "./components/pkmn";
