@@ -1,5 +1,3 @@
-# Quick footer note
-
 import React from "react";
 
 class Footer extends React.Component {
