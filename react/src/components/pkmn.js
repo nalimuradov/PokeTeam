@@ -30,3 +30,4 @@ class Pkmn extends React.Component {
 };
 
 export default Pkmn;
+
