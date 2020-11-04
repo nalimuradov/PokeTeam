@@ -13,6 +13,7 @@ class Form extends React.Component {
 				  <option value="Sinnoh">Sinnoh</option>
 				  <option value="Unova">Unova</option>
 				  <option value="Kalos">Kalos</option>
+				  <option value="Alola">Alola</option>
 				</select>
 			</div>
 				<input type="checkbox" id="check" name="starters" value="Starters"/> <p id='lab'>Starters</p>
