@@ -27,7 +27,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "gh-pages": "^1.2.0",
+    "gh-pages": "^5.0.0",
     "ws": "3.3.2"
   }
 }
