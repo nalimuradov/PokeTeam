@@ -28,6 +28,6 @@
   ],
   "devDependencies": {
     "gh-pages": "^1.2.0",
-    "ws": "3.3.2"
+    "ws": "5.2.4"
   }
 }
